@@ -1,0 +1,5 @@
+config:
+  azure-native:location: West Europe
+  container-apps:environment: development
+  container-apps:resource-group: container-apps-development
+  container-apps:logs-retention-days: "30"

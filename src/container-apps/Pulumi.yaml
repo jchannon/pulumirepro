@@ -1,0 +1,3 @@
+name: container-apps
+runtime: dotnet
+description: Azure Container Apps infrastructure.

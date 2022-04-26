@@ -1,0 +1,18 @@
+image: registry.gitlab.com/elaway/dev-ops/docker-images/build-dotnet:latest
+
+stages:
+  - staging
+
+before_script:
+  - pulumi login
+
+pulumi-update:
+  stage: staging
+  environment: staging
+  script:
+    - cd src/container-apps
+    - pulumi stack select staging
+    - pulumi up --yes
+#  rules:
+#    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+#      when: manual
