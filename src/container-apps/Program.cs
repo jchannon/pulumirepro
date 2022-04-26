@@ -100,18 +100,14 @@ record ContainerAppsEnvironmentOptions {
     public string ResourceGroup     { get; init; } = null!;
     public string Environment       { get; init; } = null!;
     public int    LogsRetentionDays { get; init; }
+
+    static readonly string[] ValidEnvNames = { "production", "staging", "development" };
     
     public static ContainerAppsEnvironmentOptions Load() {
-        var validEnvNames = new[] {
-            "production",
-            "staging",
-            "development"
-        };
-
         // by convention only production, staging and development are accepted
         var environment = Pulumi.Deployment.Instance.StackName.ToLower();
 
-        if (!validEnvNames.Contains(environment))
+        if (!ValidEnvNames.Contains(environment))
             throw new Exception("Invalid environment name!");
 
         var config = new Config();
