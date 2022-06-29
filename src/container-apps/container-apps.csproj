@@ -12,9 +12,7 @@
         <PackageReference Include="Pulumi.AzureNative" Version="1.63.0" />
     </ItemGroup>
 
-    <ItemGroup>
-        <Using Include="System.Collections" />
-        <Using Include="Pulumi" />
-    </ItemGroup>
+
+
 
 </Project>
