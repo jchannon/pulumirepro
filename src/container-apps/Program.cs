@@ -91,7 +91,7 @@ class ContainerAppsEnvironmentStack : Pulumi.Stack {
             return new ManagedEnvironment(
                 environmentName,
                 new() {
-                    Name   = environmentName,
+                    EnvironmentName = environmentName,
                     ResourceGroupName = resourceGroup.Name,
                     AppLogsConfiguration = new AppLogsConfigurationArgs {
                         Destination = "log-analytics",
@@ -121,7 +121,7 @@ class ContainerAppsEnvironmentStack : Pulumi.Stack {
             var app = new ContainerApp(
                 $"{options.Environment}-datadog-agent",
                 new() {
-                    Name     = $"{options.Environment}-datadog-agent",
+                    ContainerAppName =  $"{options.Environment}-datadog-agent",
                     ResourceGroupName    = resourceGroup.Name,
                     ManagedEnvironmentId = managedEnvironmentId,
                     Configuration = new ConfigurationArgs {
